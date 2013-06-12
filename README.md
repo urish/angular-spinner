@@ -2,6 +2,7 @@ angular-spinner
 ===============
 
 Angular directive to show an animated spinner (using [spin.js](http://fgnass.github.io/spin.js/))
+
 Copyright (C) 2013, Uri Shaked <uri@urish.org>
 
 Usage
