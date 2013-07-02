@@ -16,11 +16,22 @@ module.exports = function (grunt) {
 				singleRun: true
 			}
 		},
+		ngmin: {
+			dist: {
+				files: [
+					{
+						src: 'angular-spinner.js',
+						dest: 'angular-spinner.min.js'
+					}
+				]
+			}
+		},
 		uglify: {
 			dist: {
 				files: {
-					'angular-spinner.min.js': 'angular-spinner.js'
-				}}
+					'angular-spinner.min.js': 'angular-spinner.min.js'
+				}
+			}
 		}
 	});
 
@@ -29,6 +40,7 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('build', [
+		'ngmin',
 		'uglify'
 	]);
 
