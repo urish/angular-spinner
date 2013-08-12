@@ -7,6 +7,7 @@
 angular.module('angularSpinner', [])
 	.directive('usSpinner', function ($window) {
 		return {
+			scope: true,
 			link: function (scope, element, attr) {
 				scope.spinner = null;
 				scope.$watch(attr.usSpinner, function (options) {
