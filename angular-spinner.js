@@ -6,14 +6,17 @@
 
 angular.module('angularSpinner', [])
 	.directive('usSpinner', function ($window) {
-		return function (scope, element, attr) {
-			scope.spinner = null;
-			scope.$watch(attr.usSpinner, function (options) {
-				if (scope.spinner) {
-					scope.spinner.stop();
-				}
-				scope.spinner = new $window.Spinner(options);
-				scope.spinner.spin(element[0]);
-			}, true);
-		};
+		return {
+			scope: true,
+			link: function (scope, element, attr) {
+				scope.spinner = null;
+				scope.$watch(attr.usSpinner, function (options) {
+					if (scope.spinner) {
+						scope.spinner.stop();
+					}
+					scope.spinner = new $window.Spinner(options);
+					scope.spinner.spin(element[0]);
+				}, true);
+			}
+		}
 	});

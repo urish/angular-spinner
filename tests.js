@@ -37,6 +37,16 @@ describe('Directive: us-spinner', function () {
 		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
 	}));
 
+	it('should start spinning the second spinner without stopping the first one', inject(function ($rootScope, $compile) {
+		var element = angular.element('<div us-spinner></div>');
+		element = $compile(element)($rootScope);
+		var secondElement = angular.element('<div us-spinner></div>');
+		secondElement = $compile(element)($rootScope);
+		$rootScope.$digest();
+		expect(Spinner.prototype.spin.callCount).toBe(2);
+		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
+	}));
+
 	it('should set spinner options as given in attribute', inject(function ($rootScope, $compile) {
 		var element = angular.element('<div us-spinner="{width:15}"></div>');
 		element = $compile(element)($rootScope);
