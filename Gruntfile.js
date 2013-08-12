@@ -7,7 +7,6 @@
 module.exports = function (grunt) {
 	// load all grunt tasks
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-	var path = require('path');
 
 	grunt.initConfig({
 		karma: {
@@ -15,6 +14,17 @@ module.exports = function (grunt) {
 				configFile: 'karma.conf.js',
 				singleRun: true
 			}
+		},
+		jshint: {
+			options: {
+				jshintrc: '.jshintrc'
+			},
+			all: [
+				'Gruntfile.js',
+				'angular-spinner.js',
+				'tests.js',
+				'karma.conf.js'
+			]
 		},
 		uglify: {
 			dist: {
@@ -26,6 +36,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask('test', [
+		'jshint',
 		'karma'
 	]);
 
