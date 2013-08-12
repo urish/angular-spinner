@@ -5,7 +5,7 @@
 'use strict';
 
 angular.module('angularSpinner', [])
-	.directive('usSpinner', function ($window) {
+	.directive('usSpinner', ['$window', function ($window) {
 		return {
 			scope: true,
 			link: function (scope, element, attr) {
@@ -18,5 +18,5 @@ angular.module('angularSpinner', [])
 					scope.spinner.spin(element[0]);
 				}, true);
 			}
-		}
-	});
+		};
+	}]);
