@@ -1,4 +1,5 @@
-/* License: MIT.
+/* angular-spinner version 0.2.0
+ * License: MIT.
  * Copyright (C) 2013, Uri Shaked.
  */
 
