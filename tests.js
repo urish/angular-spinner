@@ -69,4 +69,13 @@ describe('Directive: us-spinner', function () {
 		expect(Spinner.prototype.spin.callCount).toBe(2);
 	}));
 
+	it('should stop the spinner when the scope is destroyed', inject(function ($rootScope, $compile) {
+		var scope = $rootScope.$new();
+		var element = angular.element('<div us-spinner></div>');
+		element = $compile(element)(scope);
+		$rootScope.$digest();
+		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
+		scope.$destroy();
+		expect(Spinner.prototype.stop).toHaveBeenCalled();
+	}));
 });
