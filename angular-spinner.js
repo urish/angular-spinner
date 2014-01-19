@@ -1,33 +1,74 @@
-/* angular-spinner version 0.2.1
+/**
+ * angular-spinner version 0.2.1
  * License: MIT.
  * Copyright (C) 2013, Uri Shaked.
  */
 
-'use strict';
+(function (window, angular) {
+	'use strict';
 
-angular.module('angularSpinner', [])
-	.directive('usSpinner', ['$window', function ($window) {
-		return {
-			scope: true,
-			link: function (scope, element, attr) {
-				scope.spinner = null;
-				
-				function stopSpinner() {
-					if (scope.spinner) {
-						scope.spinner.stop();
+	angular.module('angularSpinner', [])
+
+		.factory('usSpinnerService', ['$rootScope', function ($rootScope) {
+			var config = {};
+
+			config.spin = function (key) {
+				$rootScope.$broadcast('us-spinner:spin', key);
+			};
+
+			config.stop = function (key) {
+				$rootScope.$broadcast('us-spinner:stop', key);
+			};
+
+			return config;
+		}])
+
+		.directive('usSpinner', ['$window', function ($window) {
+			return {
+				scope: true,
+				controller: function ($scope, $element, $attrs) {
+					$scope.spinner = null;
+					$scope.key = angular.isDefined($attrs.key) ? $attrs.key : null;
+
+					$scope.spin = function () {
+						if ($scope.spinner) {
+							$scope.spinner.spin($element[0]);
+						}
+					};
+
+					$scope.stop = function () {
+						if ($scope.spinner) {
+							$scope.spinner.stop();
+						}
+					};
+				},
+				link: function (scope, element, attr) {
+					scope.$watch(attr.usSpinner, function (options) {
+						scope.stop();
+						scope.spinner = new $window.Spinner(options);
+						if (!angular.isDefined(attr.key)) {
+							scope.spinner.spin(element[0]);
+						}
+					}, true);
+
+					scope.$on('us-spinner:spin', function (event, key) {
+						if(key == scope.key){
+							scope.spin();
+						}
+					});
+
+					scope.$on('us-spinner:stop', function (event, key) {
+						if(key == scope.key){
+							scope.stop();
+						}
+					});
+
+					scope.$on('$destroy', function () {
+						scope.stop();
 						scope.spinner = null;
-					}
+					});
 				}
-				
-				scope.$watch(attr.usSpinner, function (options) {
-					stopSpinner();
-					scope.spinner = new $window.Spinner(options);
-					scope.spinner.spin(element[0]);
-				}, true);
-				
-				scope.$on('$destroy', function () {
-					stopSpinner();
-				});
-			}
-		};
-	}]);
+			};
+		}]);
+
+})(window, window.angular);
