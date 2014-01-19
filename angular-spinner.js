@@ -28,7 +28,10 @@
 				scope: true,
 				controller: function ($scope, $element, $attrs) {
 					$scope.spinner = null;
-					$scope.key = angular.isDefined($attrs.key) ? $attrs.key : null;
+					$scope.key = angular.isDefined($attrs.spinnerKey) ? $attrs.spinnerKey : false; console.log($attrs.spinnerStartActive);
+					$scope.startActive = angular.isDefined($attrs.spinnerStartActive) ?
+                        $attrs.spinnerStartActive : $scope.key ?
+                        false: true;
 
 					$scope.spin = function () {
 						if ($scope.spinner) {
@@ -46,7 +49,7 @@
 					scope.$watch(attr.usSpinner, function (options) {
 						scope.stop();
 						scope.spinner = new $window.Spinner(options);
-						if (!angular.isDefined(attr.key)) {
+						if (!scope.key || scope.startActive) {
 							scope.spinner.spin(element[0]);
 						}
 					}, true);
