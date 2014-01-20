@@ -116,11 +116,11 @@ describe('Directive: us-spinner', function () {
 	}));
 
 	it('should start spinning the spinners with the same key', inject(function ($rootScope, $compile, usSpinnerService) {
-		var element = $compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
-		var secondElement = $compile('<div us-spinner spinner-key="spinner2"></div>')($rootScope);
-		var thirdElement = $compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
-		var fourthElement = $compile('<div us-spinner spinner-key="spinner2"></div>')($rootScope);
-		var fifthElement = $compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
+		$compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
+		$compile('<div us-spinner spinner-key="spinner2"></div>')($rootScope);
+		$compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
+		$compile('<div us-spinner spinner-key="spinner2"></div>')($rootScope);
+		$compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
 		$rootScope.$digest();
 		usSpinnerService.spin('spinner');
 		expect(Spinner.prototype.spin.callCount).toBe(3);
