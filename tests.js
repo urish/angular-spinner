@@ -41,7 +41,7 @@ describe('Directive: us-spinner', function () {
 		var element = angular.element('<div us-spinner></div>');
 		element = $compile(element)($rootScope);
 		var secondElement = angular.element('<div us-spinner></div>');
-		secondElement = $compile(element)($rootScope);
+		secondElement = $compile(secondElement)($rootScope);
 		$rootScope.$digest();
 		expect(Spinner.prototype.spin.callCount).toBe(2);
 		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
@@ -77,5 +77,59 @@ describe('Directive: us-spinner', function () {
 		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
 		scope.$destroy();
 		expect(Spinner.prototype.stop).toHaveBeenCalled();
+	}));
+
+	it('should not start spinning automatically', inject(function ($rootScope, $compile) {
+		var element = angular.element('<div us-spinner spinner-key="spinner"></div>');
+		element = $compile(element)($rootScope);
+		$rootScope.$digest();
+		expect(Spinner.prototype.spin).not.toHaveBeenCalled();
+	}));
+
+	it('should start spinning when service trigger the spin event', inject(function ($rootScope, $compile, usSpinnerService) {
+		var element = angular.element('<div us-spinner spinner-key="spinner"></div>');
+		element = $compile(element)($rootScope);
+		$rootScope.$digest();
+		expect(Spinner.prototype.spin).not.toHaveBeenCalled();
+		usSpinnerService.spin('spinner');
+		expect(Spinner.prototype.spin).toHaveBeenCalled();
+	}));
+
+	it('should start spinning the spinner automatically and stop when service trigger the stop event', inject(function ($rootScope, $compile, usSpinnerService) {
+		var element = angular.element('<div us-spinner spinner-key="spinner" spinner-start-active="1"></div>');
+		element = $compile(element)($rootScope);
+		$rootScope.$digest();
+		expect(Spinner.prototype.spin).toHaveBeenCalled();
+		usSpinnerService.stop('spinner');
+		expect(Spinner.prototype.stop).toHaveBeenCalled();
+	}));
+
+	it('should start spinning the second spinner without starting the first one', inject(function ($rootScope, $compile, usSpinnerService) {
+		var element = angular.element('<div us-spinner spinner-key="spinner"></div>');
+		element = $compile(element)($rootScope);
+		var secondElement = angular.element('<div us-spinner spinner-key="spinner2"></div>');
+		secondElement = $compile(secondElement)($rootScope);
+		$rootScope.$digest();
+		usSpinnerService.spin('spinner2');
+		expect(Spinner.prototype.spin.callCount).toBe(1);
+		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
+	}));
+
+	it('should start spinning the spinners with the same key', inject(function ($rootScope, $compile, usSpinnerService) {
+		var element = $compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
+		var secondElement = $compile('<div us-spinner spinner-key="spinner2"></div>')($rootScope);
+		var thirdElement = $compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
+		var fourthElement = $compile('<div us-spinner spinner-key="spinner2"></div>')($rootScope);
+		var fifthElement = $compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
+		$rootScope.$digest();
+		usSpinnerService.spin('spinner');
+		expect(Spinner.prototype.spin.callCount).toBe(3);
+		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
+		usSpinnerService.stop('spinner');
+		expect(Spinner.prototype.stop.callCount).toBe(3);
+		usSpinnerService.spin('spinner2');
+		expect(Spinner.prototype.spin.callCount).toBe(5);
+		usSpinnerService.stop('spinner2');
+		expect(Spinner.prototype.stop.callCount).toBe(5);
 	}));
 });

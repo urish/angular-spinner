@@ -4,7 +4,7 @@
  * Copyright (C) 2013, Uri Shaked.
  */
 
-(function (window, angular) {
+(function(window, angular, undefined) {
 	'use strict';
 
 	angular.module('angularSpinner', [])
@@ -30,8 +30,8 @@
 					$scope.spinner = null;
 					$scope.key = angular.isDefined($attrs.spinnerKey) ? $attrs.spinnerKey : false; console.log($attrs.spinnerStartActive);
 					$scope.startActive = angular.isDefined($attrs.spinnerStartActive) ?
-                        $attrs.spinnerStartActive : $scope.key ?
-                        false: true;
+						$attrs.spinnerStartActive : $scope.key ?
+						false: true;
 
 					$scope.spin = function () {
 						if ($scope.spinner) {
