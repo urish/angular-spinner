@@ -15,12 +15,12 @@ module.exports = function (config) {
 		files: [
 			'components/angular/angular.js',
 			'components/angular-mocks/angular-mocks.js',
-			'components/spin.js/dist/spin.js',
+			'components/spin.js/spin.js',
 			'angular-spinner.js',
 			'tests.js'
 		],
 		preprocessors: {
-			'components/spin.js/dist/spin.js': 'coverage',
+			'components/spin.js/spin.js': 'coverage',
 			'angular-spinner.js': 'coverage'
 		}
 	});
