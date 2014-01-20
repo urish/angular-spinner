@@ -28,7 +28,7 @@
 				scope: true,
 				controller: function ($scope, $element, $attrs) {
 					$scope.spinner = null;
-					$scope.key = angular.isDefined($attrs.spinnerKey) ? $attrs.spinnerKey : false; console.log($attrs.spinnerStartActive);
+					$scope.key = angular.isDefined($attrs.spinnerKey) ? $attrs.spinnerKey : false;
 					$scope.startActive = angular.isDefined($attrs.spinnerStartActive) ?
 						$attrs.spinnerStartActive : $scope.key ?
 						false: true;
