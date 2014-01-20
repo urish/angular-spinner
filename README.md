@@ -34,7 +34,7 @@ You can also pass spinner options, for example:
 <span us-spinner="{radius:30, width:8, length: 16}"></span>
 ```
 
-You can also use spinner in conjunction with the bundled service :
+You can also use spinner with the bundled service :
 
 ```html
 <button ng-click="spin-me">Start spinner</button>
@@ -43,7 +43,7 @@ You can also use spinner in conjunction with the bundled service :
 <span us-spinner spinner-key="spinner-1"></span>
 ```
 
-the bundled service to activate and stop the spinner :
+the service let you control spin start and stop :
 
 ```js
 app.controller('MyController', ['$scope', 'usSpinnerService', function($scope, usSpinnerService){
@@ -56,13 +56,13 @@ app.controller('MyController', ['$scope', 'usSpinnerService', function($scope, u
 }]);
 ```
 
-Spinner with a key can also be rendered as active :
+Note that when you specify a key, the spinner is rendered inactive.
+You can still render the spinner as active with the spinner-start-active parameter :
 ```html
 <span us-spinner spinner-key="spinner-1" spinner-start-active="1"></span>
 ```
 
-The spinner-key property will prevent the spinner to be active on render and will be used as an identifier (not unique) allowing you to
-have several spinners controlled by the same key :
+The spinner-key will be used as an identifier (not unique) allowing you to have several spinners controlled by the same key :
 
 ```html
 <span us-spinner spinner-key="spinner-1"></span>
