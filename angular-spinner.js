@@ -1,7 +1,7 @@
 /**
  * angular-spinner version 0.3.0
  * License: MIT.
- * Copyright (C) 2013, Uri Shaked.
+ * Copyright (C) 2013, 2014, Uri Shaked and contributors.
  */
 
 (function(window, angular, undefined) {
