@@ -34,7 +34,9 @@ You can also pass spinner options, for example:
 <span us-spinner="{radius:30, width:8, length: 16}"></span>
 ```
 
-You can also use spinner with the bundled service :
+Possible configuration options are described in the [spin.js homepage](http://fgnass.github.io/spin.js/).
+
+### Using the usSpinnerService to control spinners
 
 ```html
 <button ng-click="spin-me">Start spinner</button>
@@ -43,7 +45,7 @@ You can also use spinner with the bundled service :
 <span us-spinner spinner-key="spinner-1"></span>
 ```
 
-the service let you control spin start and stop :
+The `usSpinnerService` service let you control spin start and stop :
 
 ```js
 app.controller('MyController', ['$scope', 'usSpinnerService', function($scope, usSpinnerService){
@@ -73,8 +75,6 @@ The spinner-key will be used as an identifier (not unique) allowing you to have 
 <!-- This spinner will be triggered along with the first "spinner-1" -->
 <span us-spinner spinner-key="spinner-1"></span>
 ```
-
-Possible configuration options are described in the [spin.js homepage](http://fgnass.github.io/spin.js/).
 
 ## License
 
