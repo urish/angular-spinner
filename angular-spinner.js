@@ -1,5 +1,5 @@
 /**
- * angular-spinner version 0.3.0
+ * angular-spinner version 0.3.1
  * License: MIT.
  * Copyright (C) 2013, 2014, Uri Shaked and contributors.
  */
@@ -26,7 +26,7 @@
 		.directive('usSpinner', ['$window', function ($window) {
 			return {
 				scope: true,
-				controller: function ($scope, $element, $attrs) {
+				controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
 					$scope.spinner = null;
 					$scope.key = angular.isDefined($attrs.spinnerKey) ? $attrs.spinnerKey : false;
 					$scope.startActive = angular.isDefined($attrs.spinnerStartActive) ?
@@ -44,7 +44,7 @@
 							$scope.spinner.stop();
 						}
 					};
-				},
+				}],
 				link: function (scope, element, attr) {
 					scope.$watch(attr.usSpinner, function (options) {
 						scope.stop();
