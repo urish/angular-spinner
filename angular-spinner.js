@@ -30,8 +30,7 @@
 					$scope.spinner = null;
 					$scope.key = angular.isDefined($attrs.spinnerKey) ? $attrs.spinnerKey : false;
 					$scope.startActive = angular.isDefined($attrs.spinnerStartActive) ?
-						$attrs.spinnerStartActive : $scope.key ?
-						false: true;
+						$attrs.spinnerStartActive : !($scope.key);
 
 					$scope.spin = function () {
 						if ($scope.spinner) {
