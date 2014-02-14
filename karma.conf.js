@@ -22,6 +22,10 @@ module.exports = function (config) {
 		preprocessors: {
 			'components/spin.js/spin.js': 'coverage',
 			'angular-spinner.js': 'coverage'
+		},
+		coverageReporter: {
+			type: 'lcov',
+			dir: 'coverage/'
 		}
 	});
 };

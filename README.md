@@ -5,6 +5,7 @@ Angular directive to show an animated spinner (using [spin.js](http://fgnass.git
 Copyright (C) 2013, Uri Shaked <uri@urish.org>.
 
 [![Build Status](https://travis-ci.org/urish/angular-spinner.png?branch=master)](https://travis-ci.org/urish/angular-spinner)
+[![Coverage Status](https://coveralls.io/repos/urish/angular-spinner/badge.png)](https://coveralls.io/r/urish/angular-spinner)
 
 ## Usage
 
