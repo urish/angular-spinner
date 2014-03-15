@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0 - 2014-03-15
+
+- Upgrade spin.js to 2.0.0. See breaking changes [here](http://fgnass.github.io/spin.js/#v2.0.0).
+
 ## 0.3.1 - 2014-01-31
 
 - Fixed an issue that caused the minified code to fail.
