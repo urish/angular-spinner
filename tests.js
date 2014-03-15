@@ -7,7 +7,7 @@
 describe('Directive: us-spinner', function () {
 	var Spinner;
 
-	beforeEach(module(function($provide) {
+	beforeEach(module(function ($provide) {
 		Spinner = jasmine.createSpy('Spinner');
 		Spinner.prototype.spin = jasmine.createSpy('Spinner.spin');
 		Spinner.prototype.stop = jasmine.createSpy('Spinner.spin');
@@ -43,7 +43,7 @@ describe('Directive: us-spinner', function () {
 		var secondElement = angular.element('<div us-spinner></div>');
 		secondElement = $compile(secondElement)($rootScope);
 		$rootScope.$digest();
-		expect(Spinner.prototype.spin.callCount).toBe(2);
+		expect(Spinner.prototype.spin.calls.count()).toBe(2);
 		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
 	}));
 
@@ -51,7 +51,7 @@ describe('Directive: us-spinner', function () {
 		var element = angular.element('<div us-spinner="{width:15}"></div>');
 		element = $compile(element)($rootScope);
 		$rootScope.$digest();
-		expect(Spinner.mostRecentCall.args[0].width).toBe(15);
+		expect(Spinner).toHaveBeenCalledWith({width: 15});
 	}));
 
 	it('should update spinner options in response to scope updates', inject(function ($rootScope, $compile) {
@@ -59,14 +59,14 @@ describe('Directive: us-spinner', function () {
 		var element = angular.element('<div us-spinner="{width:actualWidth}"></div>');
 		element = $compile(element)($rootScope);
 		$rootScope.$digest();
-		expect(Spinner.mostRecentCall.args[0].width).toBe(25);
+		expect(Spinner).toHaveBeenCalledWith({width:25});
 		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
 
 		$rootScope.actualWidth = 72;
 		$rootScope.$digest();
-		expect(Spinner.mostRecentCall.args[0].width).toBe(72);
+		expect(Spinner).toHaveBeenCalledWith({width:72});
 		expect(Spinner.prototype.stop).toHaveBeenCalled();
-		expect(Spinner.prototype.spin.callCount).toBe(2);
+		expect(Spinner.prototype.spin.calls.count()).toBe(2);
 	}));
 
 	it('should stop the spinner when the scope is destroyed', inject(function ($rootScope, $compile) {
@@ -111,7 +111,7 @@ describe('Directive: us-spinner', function () {
 		secondElement = $compile(secondElement)($rootScope);
 		$rootScope.$digest();
 		usSpinnerService.spin('spinner2');
-		expect(Spinner.prototype.spin.callCount).toBe(1);
+		expect(Spinner.prototype.spin.calls.count()).toBe(1);
 		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
 	}));
 
@@ -123,13 +123,13 @@ describe('Directive: us-spinner', function () {
 		$compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
 		$rootScope.$digest();
 		usSpinnerService.spin('spinner');
-		expect(Spinner.prototype.spin.callCount).toBe(3);
+		expect(Spinner.prototype.spin.calls.count()).toBe(3);
 		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
 		usSpinnerService.stop('spinner');
-		expect(Spinner.prototype.stop.callCount).toBe(3);
+		expect(Spinner.prototype.stop.calls.count()).toBe(3);
 		usSpinnerService.spin('spinner2');
-		expect(Spinner.prototype.spin.callCount).toBe(5);
+		expect(Spinner.prototype.spin.calls.count()).toBe(5);
 		usSpinnerService.stop('spinner2');
-		expect(Spinner.prototype.stop.callCount).toBe(5);
+		expect(Spinner.prototype.stop.calls.count()).toBe(5);
 	}));
 });
