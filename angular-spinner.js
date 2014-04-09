@@ -4,7 +4,14 @@
  * Copyright (C) 2013, 2014, Uri Shaked and contributors.
  */
 
-(function(window, angular, undefined) {
+(function(root, factory) {
+	'use strict';
+  /* AMD module */
+  if (typeof define === 'function' && define.amd) { define(['angular', 'spin'], factory); }
+  /* Browser global */
+  else { factory(root.angular, root.Spinner); }
+})
+(window, function factory(angular, Spinner) {
 	'use strict';
 
 	angular.module('angularSpinner', [])
@@ -23,7 +30,7 @@
 			return config;
 		}])
 
-		.directive('usSpinner', ['$window', function ($window) {
+		.directive('usSpinner', function () {
 			return {
 				scope: true,
 				controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
@@ -47,7 +54,7 @@
 				link: function (scope, element, attr) {
 					scope.$watch(attr.usSpinner, function (options) {
 						scope.stop();
-						scope.spinner = new $window.Spinner(options);
+						scope.spinner = new Spinner(options);
 						if (!scope.key || scope.startActive) {
 							scope.spinner.spin(element[0]);
 						}
@@ -71,6 +78,6 @@
 					});
 				}
 			};
-		}]);
+		});
 
-})(window, window.angular);
+});
