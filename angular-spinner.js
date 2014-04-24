@@ -26,25 +26,27 @@
 		.directive('usSpinner', ['$window', function ($window) {
 			return {
 				scope: true,
-				controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
-					$scope.spinner = null;
-					$scope.key = angular.isDefined($attrs.spinnerKey) ? $attrs.spinnerKey : false;
-					$scope.startActive = angular.isDefined($attrs.spinnerStartActive) ?
-						$attrs.spinnerStartActive : !($scope.key);
-
-					$scope.spin = function () {
-						if ($scope.spinner) {
-							$scope.spinner.spin($element[0]);
-						}
-					};
-
-					$scope.stop = function () {
-						if ($scope.spinner) {
-							$scope.spinner.stop();
-						}
-					};
-				}],
 				link: function (scope, element, attr) {
+					scope.spinner = null;
+
+					scope.key = angular.isDefined(attr.spinnerKey) ? attr.spinnerKey : false;
+
+					scope.startActive = angular.isDefined(attr.spinnerStartActive) ?
+						attr.spinnerStartActive : scope.key ?
+						false: true;
+
+					scope.spin = function () {
+						if (scope.spinner) {
+							scope.spinner.spin(element[0]);
+						}
+					};
+
+					scope.stop = function () {
+						if (scope.spinner) {
+							scope.spinner.stop();
+						}
+					};
+					
 					scope.$watch(attr.usSpinner, function (options) {
 						scope.stop();
 						scope.spinner = new $window.Spinner(options);
