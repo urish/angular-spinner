@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 - TBD
+
+- Add support for expressions in attributes (([#12](https://github.com/urish/angular-spinner/pull/12), contributed by [aaronroberson](https://github.com/aaronroberson))
+
 ## 0.4.0 - 2014-03-15
 
 - Upgrade spin.js to 2.0.0. See breaking changes [here](http://fgnass.github.io/spin.js/#v2.0.0).
