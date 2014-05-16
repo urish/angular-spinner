@@ -3,6 +3,7 @@
 ## 0.5.0 - TBD
 
 - Add support for expressions in attributes (([#12](https://github.com/urish/angular-spinner/pull/12), contributed by [aaronroberson](https://github.com/aaronroberson))
+- Generate source map for the minified version ([#14](https://github.com/urish/angular-spinner/issues/14))
 
 ## 0.4.0 - 2014-03-15
 

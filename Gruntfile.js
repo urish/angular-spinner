@@ -28,6 +28,9 @@ module.exports = function (grunt) {
 		},
 		uglify: {
 			dist: {
+				options: {
+					sourceMap: true
+				},
 				files: {
 					'angular-spinner.min.js': 'angular-spinner.js'
 				}
