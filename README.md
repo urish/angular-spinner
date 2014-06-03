@@ -12,8 +12,8 @@ Copyright (C) 2013, 2014, Uri Shaked <uri@urish.org>.
 Include both spin.js and angular-spinner.js in your application.
 
 ```html
-<script src="components/spin.js/dist/spin.js"></script>
-<script src="components/angular-spinner/angular-spinner.js"></script>
+<script src="bower_components/spin.js/dist/spin.js"></script>
+<script src="bower_components/angular-spinner/angular-spinner.js"></script>
 ```
 
 Add the module `angularSpinner` as a dependency to your app module:
