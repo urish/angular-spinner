@@ -1,10 +1,11 @@
 {
 	"name": "angular-spinner",
-	"version": "0.4.0",
+	"version": "0.4.1",
 	"repository": {
 		"type": "git",
 		"url": "http://github.com/urish/angular-spinner.git"
 	},
+	"main": "angular-spinner.js",
 	"dependencies": {},
 	"devDependencies": {
 		"grunt": "~0.4.1",
