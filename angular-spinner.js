@@ -9,7 +9,7 @@
 
 	angular.module('angularSpinner', [])
 
-		.factory('usSpinnerService', ['$rootScope', '$timeout' function ($rootScope, $timeout) {
+		.factory('usSpinnerService', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
 			var config = {};
 
 			config.spin = function (key) {
