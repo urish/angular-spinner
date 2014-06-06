@@ -22,7 +22,7 @@
 	"maxcomplexity": 7,
 	"globals": {
 		"angular": false,
-		"jQuery": false,
+		"define": false,
 
 		"jasmine": false,
 		"expect": false,
