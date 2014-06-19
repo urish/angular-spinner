@@ -43,6 +43,8 @@
 						scope.spin = function () {
 							if (scope.spinner) {
 								scope.spinner.spin(element[0]);
+							} else {
+								scope.startActive = true;
 							}
 						};
 
