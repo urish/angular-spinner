@@ -104,6 +104,22 @@ describe('Directive: us-spinner', function () {
 		expect(Spinner.prototype.stop).toHaveBeenCalled();
 	}));
 
+	it('should not start spinning the spinner automatically from binding', inject(function ($rootScope, $compile) {
+		$rootScope.spinnerActive = false;
+		var element = angular.element('<div us-spinner spinner-key="spinner" spinner-start-active="spinnerActive"></div>');
+		element = $compile(element)($rootScope);
+		$rootScope.$digest();
+		expect(Spinner.prototype.spin).not.toHaveBeenCalled();
+	}));
+
+	it('should start spinning the spinner automatically from binding', inject(function ($rootScope, $compile) {
+		$rootScope.spinnerActive = true;
+		var element = angular.element('<div us-spinner spinner-key="spinner" spinner-start-active="spinnerActive"></div>');
+		element = $compile(element)($rootScope);
+		$rootScope.$digest();
+		expect(Spinner.prototype.spin).toHaveBeenCalled();
+	}));
+
 	it('should start spinning the second spinner without starting the first one', inject(function ($rootScope, $compile, usSpinnerService) {
 		var element = angular.element('<div us-spinner spinner-key="spinner"></div>');
 		element = $compile(element)($rootScope);
