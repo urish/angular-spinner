@@ -47,15 +47,16 @@
 						};
 
 						scope.stop = function () {
+							scope.startActive=false;
 							if (scope.spinner) {
 								scope.spinner.stop();
 							}
 						};
 
 						scope.$watch(attr.usSpinner, function (options) {
-							scope.stop();
 							scope.spinner = new SpinnerConstructor(options);
 							if (!scope.key || scope.startActive) {
+								scope.stop();
 								scope.spinner.spin(element[0]);
 							}
 						}, true);
