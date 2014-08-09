@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1 - 2014-08-09
+- AMD / Require.js compatibility ([#11](https://github.com/urish/angular-spinner/pull/11), contributed by [floribon](https://github.com/floribon))
+- Bugfix: Stop events are ignored if sent before the directive is fully initialized and `startActive` is true ([#22](https://github.com/urish/angular-spinner/pull/22), contributed by [vleborgne](https://github.com/vleborgne))
+
 ## 0.5.0 - 2014-06-03
 
 - Add support for expressions in attributes ([#12](https://github.com/urish/angular-spinner/pull/12), contributed by [aaronroberson](https://github.com/aaronroberson))
