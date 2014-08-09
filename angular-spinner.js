@@ -40,6 +40,12 @@
 							attr.spinnerStartActive : scope.key ?
 							false : true;
 
+						function stopSpinner() {
+							if (scope.spinner) {
+								scope.spinner.stop();
+							}
+						}
+
 						scope.spin = function () {
 							if (scope.spinner) {
 								scope.spinner.spin(element[0]);
@@ -47,16 +53,14 @@
 						};
 
 						scope.stop = function () {
-							scope.startActive=false;
-							if (scope.spinner) {
-								scope.spinner.stop();
-							}
+							scope.startActive = false;
+							stopSpinner();
 						};
 
 						scope.$watch(attr.usSpinner, function (options) {
+							stopSpinner();
 							scope.spinner = new SpinnerConstructor(options);
 							if (!scope.key || scope.startActive) {
-								scope.stop();
 								scope.spinner.spin(element[0]);
 							}
 						}, true);

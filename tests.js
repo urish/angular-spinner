@@ -10,7 +10,7 @@ describe('Directive: us-spinner', function () {
 	beforeEach(module(function ($provide) {
 		Spinner = jasmine.createSpy('Spinner');
 		Spinner.prototype.spin = jasmine.createSpy('Spinner.spin');
-		Spinner.prototype.stop = jasmine.createSpy('Spinner.spin');
+		Spinner.prototype.stop = jasmine.createSpy('Spinner.stop');
 
 		$provide.value('$window', {
 			location: angular.copy(window.location),
@@ -59,12 +59,12 @@ describe('Directive: us-spinner', function () {
 		var element = angular.element('<div us-spinner="{width:actualWidth}"></div>');
 		element = $compile(element)($rootScope);
 		$rootScope.$digest();
-		expect(Spinner).toHaveBeenCalledWith({width:25});
+		expect(Spinner).toHaveBeenCalledWith({width: 25});
 		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
 
 		$rootScope.actualWidth = 72;
 		$rootScope.$digest();
-		expect(Spinner).toHaveBeenCalledWith({width:72});
+		expect(Spinner).toHaveBeenCalledWith({width: 72});
 		expect(Spinner.prototype.stop).toHaveBeenCalled();
 		expect(Spinner.prototype.spin.calls.count()).toBe(2);
 	}));
