@@ -77,6 +77,10 @@ The spinner-key will be used as an identifier (not unique) allowing you to have 
 <span us-spinner spinner-key="spinner-1"></span>
 ```
 
+### Example
+
+See [online example on Plunker](http://plnkr.co/edit/BGLUYcylbIVJRz6ztbhf?p=preview). 
+
 ## License
 
 Released under the terms of MIT License.
