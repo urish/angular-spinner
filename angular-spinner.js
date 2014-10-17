@@ -37,7 +37,7 @@
 						scope.key = angular.isDefined(attr.spinnerKey) ? attr.spinnerKey : false;
 
 						scope.startActive = angular.isDefined(attr.spinnerStartActive) ?
-							attr.spinnerStartActive : scope.key ?
+							scope.$eval(attr.spinnerStartActive) : scope.key ?
 							false : true;
 
 						function stopSpinner() {
