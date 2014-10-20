@@ -40,8 +40,8 @@ Possible configuration options are described in the [spin.js homepage](http://fg
 ### Using the usSpinnerService to control spinners
 
 ```html
-<button ng-click="spin-me">Start spinner</button>
-<button ng-click="spin-me">Stop spinner</button>
+<button ng-click="startSpin">Start spinner</button>
+<button ng-click="stopSpin">Stop spinner</button>
 
 <span us-spinner spinner-key="spinner-1"></span>
 ```
