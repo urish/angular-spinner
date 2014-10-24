@@ -62,7 +62,7 @@ app.controller('MyController', ['$scope', 'usSpinnerService', function($scope, u
 Note that when you specify a key, the spinner is rendered inactive.
 You can still render the spinner as active with the spinner-start-active parameter :
 ```html
-<span us-spinner spinner-key="spinner-1" spinner-start-active="1"></span>
+<span us-spinner spinner-key="spinner-1" spinner-start-active></span>
 ```
 
 The spinner-key will be used as an identifier (not unique) allowing you to have several spinners controlled by the same key :
