@@ -12,6 +12,21 @@
 		angular
 			.module('angularSpinner', [])
 
+			.provider('usSpinnerConfig', function () {
+				var _config = {};
+
+				return {
+					setDefaults: function (config) {
+						_config = config || _config;
+					},
+					$get: function () {
+						return {
+							config: _config
+						};
+					}
+				};
+			})
+
 			.factory('usSpinnerService', ['$rootScope', function ($rootScope) {
 				var config = {};
 
@@ -26,7 +41,7 @@
 				return config;
 			}])
 
-			.directive('usSpinner', ['$window', function ($window) {
+			.directive('usSpinner', ['$window', 'usSpinnerConfig', function ($window, usSpinnerConfig) {
 				return {
 					scope: true,
 					link: function (scope, element, attr) {
@@ -59,6 +74,14 @@
 
 						scope.$watch(attr.usSpinner, function (options) {
 							stopSpinner();
+
+							options = options || {};
+							for (var property in usSpinnerConfig.config) {
+							    if (options[property] === undefined) {
+							        options[property] = usSpinnerConfig.config[property];
+							    }
+							}
+
 							scope.spinner = new SpinnerConstructor(options);
 							if (!scope.key || scope.startActive) {
 								scope.spinner.spin(element[0]);
