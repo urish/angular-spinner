@@ -12,7 +12,7 @@ Copyright (C) 2013, 2014, Uri Shaked <uri@urish.org>.
 Include both spin.js and angular-spinner.js in your application.
 
 ```html
-<script src="bower_components/spin.js/dist/spin.js"></script>
+<script src="bower_components/spin.js/spin.js"></script>
 <script src="bower_components/angular-spinner/angular-spinner.js"></script>
 ```
 
