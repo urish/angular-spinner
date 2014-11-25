@@ -4,6 +4,20 @@
 
 'use strict';
 
+describe('Provider: usSpinnerConfigProvider', function () {
+	beforeEach(module('angularSpinner'));
+
+	it('should have configurable options', function () {
+		module(function (usSpinnerConfigProvider) {
+			usSpinnerConfigProvider.setDefaults({color: 'black'});
+		});
+
+		inject(function (usSpinnerConfig) {
+			expect(usSpinnerConfig.config.color).toBe('black');
+		});
+	});
+});
+
 describe('Directive: us-spinner', function () {
 	var Spinner;
 
