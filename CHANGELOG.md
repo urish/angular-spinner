@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0 - 2014-12-12
+- Added configurable default options ([#31](https://github.com/urish/angular-spinner/pull/31), contributed by [aleksih](https://github.com/aleksih))
+- Added scope eval to allow for data binding support ([#21](https://github.com/urish/angular-spinner/pull/21), contributed by [jdamick](https://github.com/jdamick))
+
 ## 0.5.1 - 2014-08-09
 - AMD / Require.js compatibility ([#11](https://github.com/urish/angular-spinner/pull/11), contributed by [floribon](https://github.com/floribon))
 - Bugfix: Stop events are ignored if sent before the directive is fully initialized and `startActive` is true ([#22](https://github.com/urish/angular-spinner/pull/22), contributed by [vleborgne](https://github.com/vleborgne))
