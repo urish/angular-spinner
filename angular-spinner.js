@@ -9,7 +9,7 @@
 
 	function factory(angular, Spinner) {
 
-		angular
+		return angular
 			.module('angularSpinner', [])
 
 			.provider('usSpinnerConfig', function () {
