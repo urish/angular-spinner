@@ -17,7 +17,7 @@
 
 				return {
 					setDefaults: function (config) {
-						_config = config || _config;
+						_config = config || _config;
 					},
 					$get: function () {
 						return {
@@ -75,9 +75,9 @@
 						scope.$watch(attr.usSpinner, function (options) {
 							stopSpinner();
 
-							options = options || {};
+							options = options || {};
 							for (var property in usSpinnerConfig.config) {
-							    if (options[property] === undefined) {
+							    if (options[property] === undefined) {
 							        options[property] = usSpinnerConfig.config[property];
 							    }
 							}
