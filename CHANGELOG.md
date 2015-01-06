@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.1 - 2014-01-06
+- Removed NBSP characters from source code ([#40](https://github.com/urish/angular-spinner/pull/40), contributed by [amolghotankar](https://github.com/amolghotankar))
+- Return the created AngularJS module ([#37](https://github.com/urish/angular-spinner/pull/37), contributed by [k7sleeper](https://github.com/k7sleeper))
+
 ## 0.6.0 - 2014-12-12
 - Added configurable default options ([#31](https://github.com/urish/angular-spinner/pull/31), contributed by [aleksih](https://github.com/aleksih))
 - Added scope eval to allow for data binding support ([#21](https://github.com/urish/angular-spinner/pull/21), contributed by [jdamick](https://github.com/jdamick))

@@ -1,5 +1,5 @@
 /**
- * angular-spinner version 0.6.0
+ * angular-spinner version 0.6.1
  * License: MIT.
  * Copyright (C) 2013, 2014, Uri Shaked and contributors.
  */
