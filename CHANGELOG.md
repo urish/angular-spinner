@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.6.1 - 2014-01-06
+## 0.6.1 - 2015-01-06
 - Removed NBSP characters from source code ([#40](https://github.com/urish/angular-spinner/pull/40), contributed by [amolghotankar](https://github.com/amolghotankar))
 - Return the created AngularJS module ([#37](https://github.com/urish/angular-spinner/pull/37), contributed by [k7sleeper](https://github.com/k7sleeper))
 
