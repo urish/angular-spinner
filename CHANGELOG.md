@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.6.2 - 2015-07-02
+- Relax Angular's dependency version lock ([#52](https://github.com/urish/angular-spinner/pull/52), contributed by [gottfrois](https://github.com/gottfrois))
+
 ## 0.6.1 - 2015-01-06
 - Removed NBSP characters from source code ([#40](https://github.com/urish/angular-spinner/pull/40), contributed by [amolghotankar](https://github.com/amolghotankar))
 - Return the created AngularJS module ([#37](https://github.com/urish/angular-spinner/pull/37), contributed by [k7sleeper](https://github.com/k7sleeper))
