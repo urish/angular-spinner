@@ -10,7 +10,7 @@
 	],
 	"dependencies": {
 		"angular": "~1.x",
-		"spin.js": "~2.0.0"
+		"spin.js": "~2.x"
 	},
 	"devDependencies": {
 		"angular-mocks": "~1.x"
