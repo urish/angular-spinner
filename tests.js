@@ -4,9 +4,9 @@
 
 'use strict';
 
-describe('Provider: usSpinnerConfigProvider', function () {
-	beforeEach(module('angularSpinner'));
+beforeEach(module('angularSpinner'));
 
+describe('Provider: usSpinnerConfigProvider', function () {
 	it('should have configurable options', function () {
 		module(function (usSpinnerConfigProvider) {
 			usSpinnerConfigProvider.setDefaults({color: 'black'});
@@ -26,15 +26,8 @@ describe('Directive: us-spinner', function () {
 		Spinner.prototype.spin = jasmine.createSpy('Spinner.spin');
 		Spinner.prototype.stop = jasmine.createSpy('Spinner.stop');
 
-		$provide.value('$window', {
-			location: angular.copy(window.location),
-			navigator: angular.copy(window.navigator),
-			document: window.document,
-			Spinner: Spinner
-		});
+		$provide.constant('SpinJSSpinner', Spinner);
 	}));
-
-	beforeEach(module('angularSpinner'));
 
 	it('should create a spinner object', inject(function ($rootScope, $compile) {
 		var element = angular.element('<div us-spinner></div>');

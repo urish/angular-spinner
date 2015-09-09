@@ -14,6 +14,8 @@
 		return angular
 			.module('angularSpinner', [])
 
+			.constant('SpinJSSpinner', Spinner)
+
 			.provider('usSpinnerConfig', function () {
 				var _config = {};
 
@@ -43,12 +45,10 @@
 				return config;
 			}])
 
-			.directive('usSpinner', ['$window', 'usSpinnerConfig', function ($window, usSpinnerConfig) {
+			.directive('usSpinner', ['SpinJSSpinner', 'usSpinnerConfig', function (SpinJSSpinner, usSpinnerConfig) {
 				return {
 					scope: true,
 					link: function (scope, element, attr) {
-						var SpinnerConstructor = Spinner || $window.Spinner;
-
 						scope.spinner = null;
 
 						scope.key = angular.isDefined(attr.spinnerKey) ? attr.spinnerKey : false;
@@ -84,7 +84,7 @@
 								}
 							}
 
-							scope.spinner = new SpinnerConstructor(options);
+							scope.spinner = new SpinJSSpinner(options);
 							if (!scope.key || scope.startActive) {
 								scope.spinner.spin(element[0]);
 							}
