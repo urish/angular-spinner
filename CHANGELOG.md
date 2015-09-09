@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.0 - 2015-09-09
+- Add CommonJS support, improve AMD support (for use with browserify, webpack, SystemJS, etc.)
+
 ## 0.6.2 - 2015-07-02
 - Relax Angular's dependency version lock ([#52](https://github.com/urish/angular-spinner/pull/52), contributed by [gottfrois](https://github.com/gottfrois))
 
