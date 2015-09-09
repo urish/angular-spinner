@@ -4,6 +4,8 @@
  * Copyright (C) 2013, 2014, 2015, Uri Shaked and contributors.
  */
 
+'format amd';
+
 (function (root) {
 	'use strict';
 
@@ -77,9 +79,9 @@
 
 							options = options || {};
 							for (var property in usSpinnerConfig.config) {
-							    if (options[property] === undefined) {
-							        options[property] = usSpinnerConfig.config[property];
-							    }
+								if (options[property] === undefined) {
+									options[property] = usSpinnerConfig.config[property];
+								}
 							}
 
 							scope.spinner = new SpinnerConstructor(options);
@@ -111,9 +113,12 @@
 
 	if (typeof define === 'function' && define.amd) {
 		/* AMD module */
-		define(['angular', 'spin'], factory);
+		define(['angular', 'spin.js'], factory);
+	} else if (typeof module !== 'undefined' && module && module.exports) {
+		/* CommonJS module */
+		module.exports = factory(require('angular'), require('spin.js'));
 	} else {
 		/* Browser global */
-		factory(root.angular);
+		factory(root.angular, root.Spinner);
 	}
-}(window));
+}(window || global));
