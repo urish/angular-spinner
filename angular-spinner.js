@@ -113,7 +113,7 @@
 
 	if (typeof define === 'function' && define.amd) {
 		/* AMD module */
-		define(['angular', 'spin.js'], factory);
+		define(['angular', 'spin'], factory);
 	} else if (typeof module !== 'undefined' && module && module.exports) {
 		/* CommonJS module */
 		module.exports = factory(require('angular'), require('spin.js'));
