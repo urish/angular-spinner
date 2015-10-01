@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.0 - TBD
+- Improve UMD (Universal Module Definition) code, fixes ([#61](https://github.com/urish/angular-spinner/issues/61))
+
 ## 0.7.0 - 2015-09-09
 - Add CommonJS support, improve AMD support (for use with browserify, webpack, SystemJS, etc.)
 

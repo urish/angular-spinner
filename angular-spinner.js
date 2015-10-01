@@ -111,14 +111,14 @@
 			}]);
 	}
 
-	if (typeof define === 'function' && define.amd) {
-		/* AMD module */
-		define(['angular', 'spin'], factory);
-	} else if (typeof module !== 'undefined' && module && module.exports) {
+    if ((typeof module === 'object') && module.exports) {
 		/* CommonJS module */
 		module.exports = factory(require('angular'), require('spin.js'));
+	} else if (typeof define === 'function' && define.amd) {
+		/* AMD module */
+		define(['angular', 'spin'], factory);
 	} else {
 		/* Browser global */
 		factory(root.angular, root.Spinner);
 	}
-}(window || global));
+}(this));
