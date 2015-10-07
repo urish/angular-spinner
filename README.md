@@ -9,6 +9,11 @@ Copyright (C) 2013, 2014, 2015, Uri Shaked <uri@urish.org>.
 
 ## Usage
 
+Get both spin.js and angular-spinner
+
+```
+$ bower install spin.js angular-spinner
+```
 Include both spin.js and angular-spinner.js in your application.
 
 ```html
