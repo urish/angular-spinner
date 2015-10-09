@@ -17,15 +17,19 @@
 			.constant('SpinJSSpinner', Spinner)
 
 			.provider('usSpinnerConfig', function () {
-				var _config = {};
+				var _config = {}, _themes = {};
 
 				return {
 					setDefaults: function (config) {
 						_config = config || _config;
 					},
+					setTheme: function(name, config) {
+						_themes[name] = config;
+					},
 					$get: function () {
 						return {
-							config: _config
+							config: _config,
+							themes: _themes
 						};
 					}
 				};
@@ -77,12 +81,11 @@
 						scope.$watch(attr.usSpinner, function (options) {
 							stopSpinner();
 
-							options = options || {};
-							for (var property in usSpinnerConfig.config) {
-								if (options[property] === undefined) {
-									options[property] = usSpinnerConfig.config[property];
-								}
-							}
+							// order of precedence: element options, theme, defaults.
+							options = angular.extend(
+								usSpinnerConfig.config,
+								usSpinnerConfig.themes[attr.spinnerTheme],
+								options);
 
 							scope.spinner = new SpinJSSpinner(options);
 							if (!scope.key || scope.startActive) {
