@@ -52,6 +52,21 @@ myapp.config(['usSpinnerConfigProvider', function (usSpinnerConfigProvider) {
 }]);
 ```
 
+## Themes
+
+Themes provide named default options for spinners. Any options passed from a directive still override these.
+
+```js
+myapp.config(['usSpinnerConfigProvider', function (usSpinnerConfigProvider) {
+    usSpinnerConfigProvider.setTheme('bigBlue', {color: 'blue', radius: 20});
+    usSpinnerConfigProvider.setTheme('smallRed', {color: 'red', radius: 6});
+}]);
+```
+
+```html
+<span us-spinner spinner-theme="smallRed"></span>
+```
+
 ### Using the usSpinnerService to control spinners
 
 ```html
@@ -100,3 +115,11 @@ See [online example on Plunker](http://plnkr.co/edit/BGLUYcylbIVJRz6ztbhf?p=prev
 
 Released under the terms of MIT License.
 
+## Contributing
+
+1. Fork repo.
+2. `npm install`
+3. `bower install`
+4. Make your changes, add your tests.
+5. `grunt test`
+6. `grunt build` once all tests are passing. Commit, push, PR.
