@@ -165,7 +165,7 @@ describe('Directive: us-spinner', function () {
 		expect(Spinner.prototype.stop).not.toHaveBeenCalled();
 	}));
 
-	it('should start spinning the spinners with the same key', inject(function ($rootScope, $compile, usSpinnerService) {
+	it('should start spinning the spinners with matching key', inject(function ($rootScope, $compile, usSpinnerService) {
 		$compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
 		$compile('<div us-spinner spinner-key="spinner2"></div>')($rootScope);
 		$compile('<div us-spinner spinner-key="spinner"></div>')($rootScope);
@@ -181,5 +181,9 @@ describe('Directive: us-spinner', function () {
 		expect(Spinner.prototype.spin.calls.count()).toBe(5);
 		usSpinnerService.stop('spinner2');
 		expect(Spinner.prototype.stop.calls.count()).toBe(5);
+		usSpinnerService.spin(/^spinner/);
+		expect(Spinner.prototype.spin.calls.count()).toBe(10);
+		usSpinnerService.stop(/^spinner/);
+		expect(Spinner.prototype.stop.calls.count()).toBe(10);
 	}));
 });
