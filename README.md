@@ -11,9 +11,9 @@ Copyright (C) 2013, 2014, 2015, Uri Shaked <uri@urish.org>.
 
 Get both spin.js and angular-spinner
 
-```
-$ bower install spin.js angular-spinner
-```
+- via npm: by running ``` $ npm install angular-spinner ``` from your console
+- or via Bower: by running ``` $ bower install angular-spinner ``` from your console
+
 Include both spin.js and angular-spinner.js in your application.
 
 ```html
