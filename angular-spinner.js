@@ -88,10 +88,20 @@
 								options);
 
 							scope.spinner = new SpinJSSpinner(options);
-							if (!scope.key || scope.startActive) {
+							if ((!scope.key || scope.startActive) && !attr.spinnerOn) {
 								scope.spinner.spin(element[0]);
 							}
 						}, true);
+
+						if (attr.spinnerOn) {
+							scope.$watch(attr.spinnerOn, function (spin) {
+								if (spin) {
+									scope.spin();
+								} else {
+									scope.stop();
+								}
+							});
+						}
 
 						scope.$on('us-spinner:spin', function (event, key) {
 							if (key === scope.key) {
