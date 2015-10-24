@@ -42,6 +42,13 @@ You can also pass spinner options, for example:
 
 Possible configuration options are described in the [spin.js homepage](http://fgnass.github.io/spin.js/).
 
+You can direct the spinner to start and stop based on a scope expression, for example:
+
+```html
+<span us-spinner="{radius:30, width:8, length: 16}" spinner-on="showSpinner"></span>
+```
+
+
 ### Configuring default spinner options
 
 You can use `usSpinnerConfigProvider` to configure default options for all spinners globally. Any options passed from a directive still override these.
@@ -94,6 +101,8 @@ You can still render the spinner as active with the spinner-start-active paramet
 ```html
 <span us-spinner spinner-key="spinner-1" spinner-start-active="true"></span>
 ```
+
+spinner-start-active is ignored if spinner-on is specified.
 
 The spinner-key will be used as an identifier (not unique) allowing you to have several spinners controlled by the same key :
 
