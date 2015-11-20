@@ -82,10 +82,10 @@
 							stopSpinner();
 
 							// order of precedence: element options, theme, defaults.
-							options = angular.extend(
+							options = angular.copy(angular.extend(
 								usSpinnerConfig.config,
 								usSpinnerConfig.themes[attr.spinnerTheme],
-								options);
+								options));
 
 							scope.spinner = new SpinJSSpinner(options);
 							if ((!scope.key || scope.startActive) && !attr.spinnerOn) {
