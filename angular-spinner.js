@@ -83,6 +83,7 @@
 
 							// order of precedence: element options, theme, defaults.
 							options = angular.extend(
+								{},
 								usSpinnerConfig.config,
 								usSpinnerConfig.themes[attr.spinnerTheme],
 								options);
