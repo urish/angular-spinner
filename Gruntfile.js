@@ -35,7 +35,19 @@ module.exports = function (grunt) {
 					'angular-spinner.min.js': 'angular-spinner.js'
 				}
 			}
-		}
+		},
+		 copy: {
+      		dist: {
+        		files: [{
+          			expand: true,
+          			dot: true,
+          			cwd: '.',
+		          	dest: 'example',
+        			src: ['angular-spinner.js']
+        		}]
+        	}
+        }
+
 	});
 
 	grunt.registerTask('test', [
@@ -44,7 +56,8 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('build', [
-		'uglify'
+		'uglify',
+		'copy:dist'
 	]);
 
 	grunt.registerTask('default', ['build']);

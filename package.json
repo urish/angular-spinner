@@ -7,7 +7,9 @@
 	},
 	"main": "angular-spinner.js",
 	"dependencies": {
-		"spin.js": "^2.0.0"
+		"spin.js": "^2.0.0",
+		"bower": "^1.7.7",
+		"grunt-contrib-copy": "^0.8.2"
 	},
 	"license": "MIT",
 	"devDependencies": {
@@ -26,6 +28,7 @@
 		"node": ">=0.10.0"
 	},
 	"scripts": {
-		"test": "grunt test"
+		"test": "grunt test",
+		"postinstall": "bower install && grunt build "
 	}
 }

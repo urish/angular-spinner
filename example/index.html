@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+  <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+  <script type="text/javascript" src="angular-spinner.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller="MyController">
+  <h1>Hello Spinner!</h1>
+  <input type="button" ng-click="startSpin()" value="Start spinner" />
+  <input type="button" ng-click="stopSpin()" value="Stop spinner" />
+  <br />Spinner active: {{spinneractive}}<br />Started: {{startcounter}} times<br />
+  <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
+</body>
+
+</html>
