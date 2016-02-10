@@ -118,7 +118,10 @@ The spinner-key will be used as an identifier (not unique) allowing you to have 
 
 ### Example
 
-See [online example on Plunker](http://plnkr.co/edit/BGLUYcylbIVJRz6ztbhf?p=preview).
+Once you download the repo, you may toy around with the spinner by running `npm run example`.
+Open the example/index.html file on your brower to see the example.
+
+Also [available on Plunker](http://plnkr.co/edit/BGLUYcylbIVJRz6ztbhf?p=preview).
 
 ## License
 
