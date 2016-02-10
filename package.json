@@ -7,9 +7,7 @@
 	},
 	"main": "angular-spinner.js",
 	"dependencies": {
-		"spin.js": "^2.0.0",
-		"bower": "^1.7.7",
-		"grunt-contrib-copy": "^0.8.2"
+		"spin.js": "^2.0.0"
 	},
 	"license": "MIT",
 	"devDependencies": {
@@ -22,13 +20,15 @@
 		"karma-coverage": "0.5.2",
 		"karma-jasmine": "0.3.6",
 		"karma-phantomjs-launcher": "0.2.1",
-		"coveralls": "2.11.4"
+		"coveralls": "2.11.4",
+		"bower": "^1.7.7",
+		"grunt-contrib-copy": "^0.8.2"
 	},
 	"engines": {
 		"node": ">=0.10.0"
 	},
 	"scripts": {
 		"test": "grunt test",
-		"postinstall": "bower install && grunt build "
+		"example": "bower install && grunt build "
 	}
 }
