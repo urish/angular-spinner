@@ -2,3 +2,5 @@
 bower_components
 node_modules
 coverage
+example/angular-spinner.js
+
