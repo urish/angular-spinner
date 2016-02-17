@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.1 - 2016-02-16
+- Bugfix: Default options overwriting ([#81](https://github.com/urish/angular-spinner/pull/81), contributed by [dmytroyarmak](https://github.com/dmytroyarmak))
+
 ## 0.8.0 - 2015-10-29
 - Improve UMD (Universal Module Definition) code, fixes ([#61](https://github.com/urish/angular-spinner/issues/61))
 - Theme support ([#66](https://github.com/urish/angular-spinner/pull/66), contributed by [marknadig](https://github.com/marknadig))

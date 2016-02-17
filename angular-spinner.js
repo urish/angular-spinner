@@ -1,7 +1,7 @@
 /**
- * angular-spinner version 0.8.0
+ * angular-spinner version 0.8.1
  * License: MIT.
- * Copyright (C) 2013, 2014, 2015, Uri Shaked and contributors.
+ * Copyright (C) 2013, 2014, 2015, 2016, Uri Shaked and contributors.
  */
 
 'format amd';
