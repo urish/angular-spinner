@@ -5,7 +5,7 @@
 		"type": "git",
 		"url": "http://github.com/urish/angular-spinner.git"
 	},
-	"main": "angular-spinner.js",
+	"main": "./index.js",
 	"dependencies": {
 		"spin.js": "^2.0.0"
 	},
