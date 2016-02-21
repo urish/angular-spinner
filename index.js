@@ -1,2 +1,2 @@
-require('./angular-spinner.js');
+require('./dist/angular-spinner.js');
 module.exports = 'angularSpinner';
