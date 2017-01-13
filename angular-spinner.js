@@ -130,7 +130,7 @@
 		module.exports = factory(require('angular'), require('spin.js'));
 	} else if (typeof define === 'function' && define.amd) {
 		/* AMD module */
-		define(['angular', 'spin'], factory);
+		define(['angular', 'spin.js'], factory);
 	} else {
 		/* Browser global */
 		factory(root.angular, root.Spinner);
