@@ -7,11 +7,6 @@ Copyright (C) 2013, 2014, 2015, 2016, Uri Shaked <uri@urish.org>.
 [![Build Status](https://travis-ci.org/urish/angular-spinner.png?branch=master)](https://travis-ci.org/urish/angular-spinner)
 [![Coverage Status](https://coveralls.io/repos/urish/angular-spinner/badge.png)](https://coveralls.io/r/urish/angular-spinner)
 
----
-
-**This project is looking for a new maintainer, see [#95](https://github.com/urish/angular-spinner/issues/95) for details.**
-
----
 
 ## Usage
 
