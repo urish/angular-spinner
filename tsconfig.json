@@ -3,7 +3,8 @@
         "module": "commonjs",
         "target": "es5",
         "outDir": ".tsDist",
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "sourceMap": true
     },
     "include": [
         "src",
