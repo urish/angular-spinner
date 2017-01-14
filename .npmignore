@@ -3,7 +3,7 @@ node_modules
 coverage
 .history
 .vscode
-.tsDist
 src
 Examples
 test
+webpack.config.js

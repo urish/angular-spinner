@@ -2,7 +2,6 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "outDir": ".tsDist",
         "strictNullChecks": true,
         "sourceMap": true
     },

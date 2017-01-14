@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"homepage": "https://github.com/urish/angular-spinner",
 	"ignore": [
-		".tsDist",
+		"webpack.config.js",
 		"src",
 		"test",
 		"typings",

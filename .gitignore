@@ -3,6 +3,5 @@ node_modules
 coverage
 .history
 .vscode
-.tsDist
 dist
 typings

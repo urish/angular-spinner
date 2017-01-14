@@ -26,7 +26,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "clean": "rm -rf ./dist && rm -rf ./.tsDist",
+    "clean": "rm -rf ./dist",
     "build": "npm run clean && npm run build:browser && npm run build:browser:debug",
     "build:browser": "webpack ./src/angular-spinner.ts ./dist/angular-spinner.min.js --output-library-target=\"umd\" -p",
     "build:browser:debug": "webpack ./src/angular-spinner.ts ./dist/angular-spinner.js --output-library-target=\"umd\" -d",
