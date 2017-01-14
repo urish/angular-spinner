@@ -2,7 +2,7 @@
 
 Angular directive to show an animated spinner (using [spin.js](http://fgnass.github.io/spin.js/))
 
-Copyright (C) 2013, 2014, 2015, 2016, Uri Shaked <uri@urish.org>.
+Copyright (C) 2013, 2014, 2015, 2016, 2017 Uri Shaked <uri@urish.org>.
 
 [![Build Status](https://travis-ci.org/urish/angular-spinner.png?branch=master)](https://travis-ci.org/urish/angular-spinner)
 [![Coverage Status](https://coveralls.io/repos/urish/angular-spinner/badge.png)](https://coveralls.io/r/urish/angular-spinner)
@@ -10,16 +10,25 @@ Copyright (C) 2013, 2014, 2015, 2016, Uri Shaked <uri@urish.org>.
 
 ## Usage
 
-Get both spin.js and angular-spinner
+Get angular-spinner
 
 - via npm: by running ``` $ npm install angular-spinner ``` from your console
-- or via Bower: by running ``` $ bower install angular-spinner ``` from your console
 
-Include both spin.js and angular-spinner.js in your application.
+Include angular-spinner.js in your application.
+
+```js
+import 'angular-spinner';
+
+OR:
+
+require('angular-spinner');
+```
+
+OR by picking one of the following files (minified/not-minified): 
 
 ```html
-<script src="bower_components/spin.js/spin.js"></script>
-<script src="bower_components/angular-spinner/angular-spinner.js"></script>
+<script src="node_modules/angular-spinner/dist/angular-spinner.js"></script>
+<script src="node_modules/angular-spinner/dist/angular-spinner.min.js"></script>
 ```
 
 Add the module `angularSpinner` as a dependency to your app module:
@@ -128,8 +137,7 @@ Released under the terms of MIT License.
 ## Contributing
 
 1. Fork repo.
-2. `npm install`
-3. `bower install`
-4. Make your changes, add your tests.
-5. `grunt test`
-6. `grunt build` once all tests are passing. Commit, push, PR.
+2. `npm i`
+3. Make your changes, add your tests.
+4. `npm run test`
+5. `npm run build` once all tests are passing. Commit, push, PR.

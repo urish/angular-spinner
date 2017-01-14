@@ -10,22 +10,21 @@ module.exports = function (config) {
 		frameworks: ['jasmine'],
 		logLevel: config.LOG_INFO,
 		browsers: ['PhantomJS'],
-		autoWatch: true,
-		reporters: ['dots', 'coverage'],
+		singleRun: true,
+		reporters: ['dots'], //, 'coverage'],
 		files: [
-			'bower_components/angular/angular.js',
-			'bower_components/angular-mocks/angular-mocks.js',
-			'bower_components/spin.js/spin.js',
-			'angular-spinner.js',
+			'node_modules/angular/angular.js',
+			'node_modules/angular-mocks/angular-mocks.js',
+			'node_modules/spin.js/spin.js',
+			'dist/angular-spinner.js',
 			'tests.js'
 		],
-		preprocessors: {
-			'components/spin.js/spin.js': 'coverage',
-			'angular-spinner.js': 'coverage'
-		},
-		coverageReporter: {
-			type: 'lcov',
-			dir: 'coverage/'
-		}
+		// preprocessors: {
+		// 	'dist/angular-spinner.js': 'coverage'
+		// },
+		// coverageReporter: {
+		// 	type: 'lcov',
+		// 	dir: 'coverage/'
+		// }
 	});
 };

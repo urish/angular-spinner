@@ -1,4 +1,8 @@
 .idea
-bower_components
 node_modules
 coverage
+.history
+.vscode
+.tsDist
+src
+Examples

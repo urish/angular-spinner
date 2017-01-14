@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "outDir": ".tsDist",
+        "strictNullChecks": true
+    },
+    "include": [
+        "src",
+        "typings"
+    ]
+}

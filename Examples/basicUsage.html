@@ -1,0 +1,19 @@
+
+<html>
+    <head>
+
+    </head>
+    <body ng-app="exampleApp">
+
+        <div ng-controller="mainCtrl as vm">
+            <span us-spinner="{radius:30, width:8, length: 16}"></span>
+        </div>
+        
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../dist/angular-spinner.js"></script>
+        <script>
+            var exampleApp = angular.module('exampleApp', ['angularSpinner'])
+                                .controller('mainCtrl', function() {});
+        </script>
+    </body>
+</html>
