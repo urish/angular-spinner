@@ -55,7 +55,7 @@
 					link: function (scope, element, attr) {
 						scope.spinner = null;
 
-						scope.key = angular.isDefined(attr.spinnerKey) ? attr.spinnerKey : false;
+						scope.key = attr.spinnerKey || '';
 
 						scope.startActive = angular.isDefined(attr.spinnerStartActive) ?
 							scope.$eval(attr.spinnerStartActive) : scope.key ?
@@ -105,13 +105,13 @@
 						}
 
 						scope.$on('us-spinner:spin', function (event, key) {
-							if (key === scope.key) {
+							if (key instanceof RegExp ? key.test(scope.key) : key === scope.key) {
 								scope.spin();
 							}
 						});
 
 						scope.$on('us-spinner:stop', function (event, key) {
-							if (key === scope.key) {
+							if (key instanceof RegExp ? key.test(scope.key) : key === scope.key) {
 								scope.stop();
 							}
 						});

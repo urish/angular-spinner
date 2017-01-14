@@ -91,8 +91,9 @@ app.controller('MyController', ['$scope', 'usSpinnerService', function($scope, u
     $scope.startSpin = function(){
         usSpinnerService.spin('spinner-1');
     }
+    # Stop all spinners that start with 'spinner'
     $scope.stopSpin = function(){
-        usSpinnerService.stop('spinner-1');
+        usSpinnerService.stop(/^spinner/);
     }
 }]);
 ```
