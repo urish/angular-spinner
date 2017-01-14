@@ -2,13 +2,11 @@
  * Copyright (C) 2013, 2014, Uri Shaked and contributors.
  */
 
-'use strict';
-
-beforeEach(module('angularSpinner'));
+beforeEach(angular.mock.module('angularSpinner'));
 
 describe('Provider: usSpinnerConfigProvider', function () {
 	it('should have configurable options', function () {
-		module(function (usSpinnerConfigProvider) {
+		angular.mock.module(function (usSpinnerConfigProvider) {
 			usSpinnerConfigProvider.setDefaults({color: 'black'});
 		});
 
@@ -17,7 +15,7 @@ describe('Provider: usSpinnerConfigProvider', function () {
 		});
 	});
 	it('should support themes', function () {
-		module(function (usSpinnerConfigProvider) {
+		angular.mock.module(function (usSpinnerConfigProvider) {
 			usSpinnerConfigProvider.setTheme('bigRed', {color: 'red', size: 20});
 		});
 
@@ -30,7 +28,7 @@ describe('Provider: usSpinnerConfigProvider', function () {
 describe('Directive: us-spinner', function () {
 	var Spinner;
 
-	beforeEach(module(function ($provide) {
+	beforeEach(angular.mock.module(function ($provide) {
 		Spinner = jasmine.createSpy('Spinner');
 		Spinner.prototype.spin = jasmine.createSpy('Spinner.spin');
 		Spinner.prototype.stop = jasmine.createSpy('Spinner.stop');
@@ -71,7 +69,7 @@ describe('Directive: us-spinner', function () {
 	}));
 
 	describe('with default options', function() {
-		beforeEach(module(function(usSpinnerConfigProvider) {
+		beforeEach(angular.mock.module(function(usSpinnerConfigProvider) {
 			usSpinnerConfigProvider.setDefaults({width: 10, color: 'black'});
 		}));
 
@@ -83,7 +81,7 @@ describe('Directive: us-spinner', function () {
 		}));
 
 		describe('and with theme options', function() {
-			beforeEach(module(function(usSpinnerConfigProvider) {
+			beforeEach(angular.mock.module(function(usSpinnerConfigProvider) {
 				usSpinnerConfigProvider.setTheme('bigRed', {size: 20, color: 'red'});
 			}));
 

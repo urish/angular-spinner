@@ -13,6 +13,7 @@ Copyright (C) 2013, 2014, 2015, 2016, 2017 Uri Shaked <uri@urish.org>.
 Get angular-spinner
 
 - via npm: by running ``` $ npm install angular-spinner ``` from your console
+- via bower: by running ``` $ bower install angular-spinner ``` from your console
 
 Include angular-spinner.js in your application.
 

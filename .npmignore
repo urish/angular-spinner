@@ -6,3 +6,4 @@ coverage
 .tsDist
 src
 Examples
+test

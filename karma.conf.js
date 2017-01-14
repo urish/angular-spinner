@@ -7,7 +7,7 @@
 module.exports = function (config) {
 	config.set({
 		basePath: '',
-		frameworks: ['jasmine'],
+		frameworks: ['jasmine', 'karma-typescript'],
 		logLevel: config.LOG_INFO,
 		browsers: ['PhantomJS'],
 		singleRun: true,
@@ -17,11 +17,11 @@ module.exports = function (config) {
 			'node_modules/angular-mocks/angular-mocks.js',
 			'node_modules/spin.js/spin.js',
 			'dist/angular-spinner.js',
-			'tests.js'
+			'test/tests.ts'
 		],
-		// preprocessors: {
-		// 	'dist/angular-spinner.js': 'coverage'
-		// },
+		preprocessors: {
+			'test/tests.ts': ['karma-typescript']
+		},
 		// coverageReporter: {
 		// 	type: 'lcov',
 		// 	dir: 'coverage/'
