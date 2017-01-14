@@ -3,7 +3,12 @@ sudo: false
 node_js:
   - 0.12
 before_script:
-  - npm i -g typings
+  - npm install -g typings
+install:
   - typings install
+  - npm install
+  - npm run build
+script:
+  - npm run test
 # after_success:
 #   - cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js

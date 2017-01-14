@@ -19,7 +19,6 @@
     "karma-phantomjs-launcher": "1.0.2",
     "karma-typescript": "2.1.6",
     "typescript": "2.1.5",
-    "typings": "2.1.0",
     "webpack": "1.14.0"
   },
   "engines": {
@@ -30,7 +29,7 @@
     "build": "npm run clean && tsc && npm run build:browser && npm run build:browser:debug",
     "build:browser": "webpack ./.tsDist/angular-spinner.js ./dist/angular-spinner.min.js --output-library-target=\"umd\" -p",
     "build:browser:debug": "webpack ./.tsDist/angular-spinner.js ./dist/angular-spinner.js --output-library-target=\"umd\" -d",
-    "prepublish": "typings install && npm run build",
+    "prepublish": "npm run build",
     "test": "karma start karma.conf.js"
   }
 }
