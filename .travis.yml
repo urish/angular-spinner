@@ -2,9 +2,8 @@ language: node_js
 sudo: false
 node_js:
   - 0.12
-before_script:
-  - npm install -g typings
 install:
+  - npm install -g typings
   - typings install
   - npm install
   - npm run build
