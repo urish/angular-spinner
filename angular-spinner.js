@@ -128,6 +128,9 @@
     if ((typeof module === 'object') && module.exports) {
 		/* CommonJS module */
 		module.exports = factory(require('angular'), require('spin.js'));
+    /* jshint camelcase: false */ } else if (window && typeof window.__webpack_require__ === 'function') { /* jshint camelcase: true */
+    	/* webpack module */
+    	define(['angular', 'spin.js'], factory);
 	} else if (typeof define === 'function' && define.amd) {
 		/* AMD module */
 		define(['angular', 'spin'], factory);
