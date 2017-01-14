@@ -4,7 +4,6 @@ node_js:
   - 6.9.1
 before_install:
   - npm install -g typings
-  - npm install -g typescript
 install:
   - typings install
   - npm install
