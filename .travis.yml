@@ -2,12 +2,8 @@ language: node_js
 sudo: false
 node_js:
   - 6.9.1
-before_install:
-  - npm install -g typings
 install:
-  - typings install
   - npm install
-  - npm run build
 script:
   - npm test
 after_success:
