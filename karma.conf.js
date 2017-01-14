@@ -6,10 +6,21 @@
 
 var webpackConf = require('./webpack.config.js');
 
+webpackConf.entry = {};
+webpackConf.module.postLoaders = [
+    {
+        test: /\.ts$/,
+        loader: 'istanbul-instrumenter-loader',
+        exclude: [
+            'node_modules'
+        ]
+    }
+];
+
 module.exports = function (config) {
 	config.set({
 		basePath: '',
-		frameworks: ['jasmine'],
+		frameworks: ['jasmine', 'source-map-support'],
 		logLevel: config.LOG_INFO,
 		browsers: ['PhantomJS'],
 		singleRun: true,
@@ -22,12 +33,15 @@ module.exports = function (config) {
 		],
 		webpack: webpackConf,
 		preprocessors: {
-			'src/angular-spinner.ts': ['webpack', 'sourcemap'], 
-			'test/index.ts': ['webpack', 'sourcemap']
+			'src/angular-spinner.ts': ['webpack'], 
+			'test/index.ts': ['webpack']
 		},
 		coverageReporter: {
 			type: 'lcov',
 			dir: 'coverage/'
+		},
+		mime: {
+			'text/x-typescript': ['ts']
 		}
 	});
 };
