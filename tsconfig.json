@@ -7,7 +7,6 @@
     },
     "include": [
         "src",
-        "test",
-        "typings"
+        "test"
     ]
 }

@@ -1,6 +1,7 @@
 import { IUsSpinnerConfig } from '../Interfaces/IUsSpinnerConfig';
 import { IUsSpinnerAttributes } from '../Interfaces/IUsSpinnerAttributes';
 import { IUsSpinnerScope } from '../Interfaces/IUsSpinnerScope';
+import * as angular from 'angular';
 
 export const usSpinner = (SpinJSSpinner:typeof Spinner, usSpinnerConfig:IUsSpinnerConfig) => {
     

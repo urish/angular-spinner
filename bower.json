@@ -9,7 +9,6 @@
 		"webpack.config.js",
 		"src",
 		"test",
-		"typings",
 		"Examples",
 		".history",
 		".vscode",
