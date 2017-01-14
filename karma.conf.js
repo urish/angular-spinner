@@ -4,27 +4,30 @@
 
 'use strict';
 
+var webpackConf = require('./webpack.config.js');
+
 module.exports = function (config) {
 	config.set({
 		basePath: '',
-		frameworks: ['jasmine', 'karma-typescript'],
+		frameworks: ['jasmine'],
 		logLevel: config.LOG_INFO,
 		browsers: ['PhantomJS'],
 		singleRun: true,
-		reporters: ['dots'], //, 'coverage'],
+		reporters: ['dots', 'coverage'], 
 		files: [
 			'node_modules/angular/angular.js',
 			'node_modules/angular-mocks/angular-mocks.js',
-			'node_modules/spin.js/spin.js',
-			'dist/angular-spinner.js',
-			'test/tests.ts'
+			'src/angular-spinner.ts',
+			'test/index.ts'
 		],
+		webpack: webpackConf,
 		preprocessors: {
-			'test/tests.ts': ['karma-typescript']
+			'src/angular-spinner.ts': ['webpack', 'sourcemap'], 
+			'test/index.ts': ['webpack', 'sourcemap']
 		},
-		// coverageReporter: {
-		// 	type: 'lcov',
-		// 	dir: 'coverage/'
-		// }
+		coverageReporter: {
+			type: 'lcov',
+			dir: 'coverage/'
+		}
 	});
 };
