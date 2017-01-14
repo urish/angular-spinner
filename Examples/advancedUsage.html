@@ -1,0 +1,45 @@
+<html>
+    <head>
+
+    </head>
+    <body ng-app="myapp" ng-controller="MyController">
+        <h1>Hello Spinner!</h1>
+        <input type="button" ng-click="startSpin()" value="Start spinner" />
+        <input type="button" ng-click="stopSpin()" value="Stop spinner" />
+        <br />Spinner active: {{spinneractive}}<br />Started: {{startcounter}} times<br />
+        <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
+
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../dist/angular-spinner.js"></script>
+
+        <script>
+            var app = angular.module('myapp', ['angularSpinner']);
+            app.controller('MyController', ['$scope', 'usSpinnerService', '$rootScope',
+            function($scope, usSpinnerService, $rootScope) {
+                    $scope.startcounter = 0;
+                    $scope.startSpin = function() {
+                        if (!$scope.spinneractive) {
+                            usSpinnerService.spin('spinner-1');
+                            $scope.startcounter++;
+                        }
+                    };
+
+                    $scope.stopSpin = function() {
+                        if ($scope.spinneractive) {
+                            usSpinnerService.stop('spinner-1');
+                        }
+                    };
+                    $scope.spinneractive = false;
+
+                    $rootScope.$on('us-spinner:spin', function(event, key) {
+                        $scope.spinneractive = true;
+                    });
+
+                    $rootScope.$on('us-spinner:stop', function(event, key) {
+                        $scope.spinneractive = false;
+                    });
+                }
+            ]);
+        </script>
+    </body>
+</html>
