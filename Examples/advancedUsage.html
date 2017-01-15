@@ -4,8 +4,8 @@
     </head>
     <body ng-app="myapp" ng-controller="MyController">
         <h1>Hello Spinner!</h1>
-        <input type="button" ng-click="startSpin()" value="Start spinner" />
-        <input type="button" ng-click="stopSpin()" value="Stop spinner" />
+        <input type="button" ng-click="startSpin()" ng-if="!spinneractive" value="Start spinner" />
+        <input type="button" ng-click="stopSpin()" ng-if="spinneractive" value="Stop spinner" />
         <br />Spinner active: {{spinneractive}}<br />Started: {{startcounter}} times<br />
         <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
 
