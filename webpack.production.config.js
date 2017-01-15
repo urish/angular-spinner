@@ -1,20 +1,14 @@
 
 var webpack = require('webpack');
+var webpackConfig = require('./webpack.config.js');
 
-module.exports = {
-  resolve: {
-    // Add `.ts` as a resolvable extension.
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
-  },
-  module: {
-    loaders: [
-      // all files with a `.ts` extension will be handled by `ts-loader`
-      { test: /\.ts$/, loader: 'ts-loader' }
-    ]
-  },
-  ts: {
+//Remove sourcemaps from production version
+webpackConfig.devtool = undefined;
+webpackConfig.plugins = undefined;
+webpackConfig.ts = {
     compilerOptions: {
         "sourceMap": false
     }
-  }
-}
+};
+
+module.exports = webpackConfig;
