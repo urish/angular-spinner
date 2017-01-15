@@ -39,7 +39,7 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "npm run clean && npm run build:browser && npm run build:browser:debug",
-    "build:browser": "webpack ./src/angular-spinner.ts ./dist/angular-spinner.min.js --output-library-target=\"umd\" -p",
+    "build:browser": "webpack ./src/angular-spinner.ts ./dist/angular-spinner.min.js --output-library-target=\"umd\" -p --config webpack.production.config.js",
     "build:browser:debug": "webpack ./src/angular-spinner.ts ./dist/angular-spinner.js --output-library-target=\"umd\" -d",
     "prepublish": "npm run build",
     "test": "karma start karma.conf.js"
