@@ -60,13 +60,13 @@ export const usSpinner = (SpinJSSpinner:typeof Spinner, usSpinnerConfig:IUsSpinn
             }
 
             scope.$on('us-spinner:spin', (event, key) => {
-                if (key === scope.key) {
+                if (!key || key === scope.key) {
                     scope.spin();
                 }
             });
 
             scope.$on('us-spinner:stop', (event, key) => {
-                if (key === scope.key) {
+                if (!key || key === scope.key) {
                     scope.stop();
                 }
             });

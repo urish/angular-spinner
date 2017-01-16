@@ -1,2 +1,2 @@
-
-import './tests.ts';
+import './Config/UsSpinnerConfig.test';
+import './Directives/AngularSpinner.test';
