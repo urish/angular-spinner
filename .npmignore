@@ -1,9 +1,0 @@
-.idea
-node_modules
-coverage
-.history
-.vscode
-src
-Examples
-test
-webpack.config.js

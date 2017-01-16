@@ -9,6 +9,14 @@
   "dependencies": {
     "spin.js": "2.3.2"
   },
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && npm run build:browser && npm run build:browser:debug",
+    "build:browser": "webpack ./src/angular-spinner.ts ./dist/angular-spinner.min.js --output-library-target=\"umd\" -p --config webpack.production.config.js",
+    "build:browser:debug": "webpack ./src/angular-spinner.ts ./dist/angular-spinner.js --output-library-target=\"umd\" -d",
+    "prepublish": "npm run build",
+    "test": "karma start karma.conf.js"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/angular": "1.6.1",
@@ -36,12 +44,7 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {
-    "clean": "rimraf ./dist",
-    "build": "npm run clean && npm run build:browser && npm run build:browser:debug",
-    "build:browser": "webpack ./src/angular-spinner.ts ./dist/angular-spinner.min.js --output-library-target=\"umd\" -p --config webpack.production.config.js",
-    "build:browser:debug": "webpack ./src/angular-spinner.ts ./dist/angular-spinner.js --output-library-target=\"umd\" -d",
-    "prepublish": "npm run build",
-    "test": "karma start karma.conf.js"
-  }
+  "files": [
+    "dist/"
+  ]
 }
