@@ -94,7 +94,8 @@ myapp.config(['usSpinnerConfigProvider', function (usSpinnerConfigProvider) {
 <span us-spinner spinner-key="spinner-1"></span>
 ```
 
-The `usSpinnerService` service let you control spin start and stop :
+The `usSpinnerService` service let you control spin start and stop by key.
+Whenever the key is not specified all the spinner will be affected (Start/Stop all spinners): 
 
 ```js
 app.controller('MyController', ['$scope', 'usSpinnerService', function($scope, usSpinnerService){
