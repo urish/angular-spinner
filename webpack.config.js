@@ -7,6 +7,11 @@ module.exports = {
     // Add `.ts` as a resolvable extension.
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
   },
+  externals: {
+      // require("angular") is external and available
+      //  on the global var angular
+      "angular": "angular"
+  },
   module: {
     loaders: [
       // all files with a `.ts` extension will be handled by `ts-loader`
