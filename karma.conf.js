@@ -12,7 +12,8 @@ webpackConf.module.postLoaders = [
         test: /\.ts$/,
         loader: 'istanbul-instrumenter-loader',
         exclude: [
-            'node_modules'
+            'node_modules',
+			/test/
         ]
     }
 ];
