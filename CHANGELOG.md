@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 - 2016-02-16
+## 1.0.0 - 2017-01-23
 - Breaking changes: Refactored the project to be written with TypeScript, contributed by [Attrash-Islam](https://github.com/Attrash-Islam)
 
 ## 0.8.1 - 2016-02-16
