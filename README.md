@@ -13,6 +13,7 @@ Copyright (C) 2013, 2014, 2015, 2016, 2017 Uri Shaked, Islam Attrash and contrib
 Get angular-spinner
 
 - via npm: by running ``` $ npm install angular-spinner ``` from your console
+- via bower: by running ``` $ bower install angular-spinner ``` from your console
 
 Include angular-spinner.js in your application.
 
@@ -24,10 +25,10 @@ OR:
 require('angular-spinner');
 ```
 
-OR by picking one of the following files (minified/not-minified): 
+OR by picking one of the following file (depends on the package manager): 
 
 ```html
-<script src="node_modules/angular-spinner/dist/angular-spinner.js"></script>
+<script src="bower_components/angular-spinner/dist/angular-spinner.min.js"></script>
 <script src="node_modules/angular-spinner/dist/angular-spinner.min.js"></script>
 ```
 
