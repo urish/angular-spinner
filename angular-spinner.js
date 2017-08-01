@@ -1,7 +1,7 @@
 /**
- * angular-spinner version 0.8.1
+ * angular-spinner version 0.9.0
  * License: MIT.
- * Copyright (C) 2013, 2014, 2015, 2016, Uri Shaked and contributors.
+ * Copyright (C) 2013, 2014, 2015, 2016, 2017 Uri Shaked, Vikas Vaidya and contributors.
  */
 
 'format amd';
@@ -23,7 +23,7 @@
 					setDefaults: function (config) {
 						_config = config || _config;
 					},
-					setTheme: function(name, config) {
+					setTheme: function (name, config) {
 						_themes[name] = config;
 					},
 					$get: function () {
@@ -65,10 +65,17 @@
 							if (scope.spinner) {
 								scope.spinner.stop();
 							}
+
+							if (scope.backdrop) {
+								scope.backdrop.parentNode.removeChild(scope.backdrop);
+								delete scope.backdrop;
+							}
 						}
 
 						scope.spin = function () {
 							if (scope.spinner) {
+								scope.backdrop = createEl('div', { className: 'spin-overlay-backdrop' });
+								element[0].insertBefore(scope.backdrop, element[0].firstChild || null);
 								scope.spinner.spin(element[0]);
 							}
 						};
@@ -90,8 +97,10 @@
 
 							scope.spinner = new SpinJSSpinner(options);
 							if ((!scope.key || scope.startActive) && !attr.spinnerOn) {
+								scope.backdrop = createEl('div', { className: 'spin-overlay-backdrop' });
+								element[0].insertBefore(scope.backdrop, element[0].firstChild || null);
 								scope.spinner.spin(element[0]);
-							}
+							}							
 						}, true);
 
 						if (attr.spinnerOn) {
@@ -120,12 +129,20 @@
 							scope.stop();
 							scope.spinner = null;
 						});
+
+						function createEl(tag, prop) {
+							var el = document.createElement(tag || 'div')
+							  , n
+
+							for (n in prop) el[n] = prop[n]
+							return el
+						}
 					}
 				};
 			}]);
 	}
 
-    if ((typeof module === 'object') && module.exports) {
+	if ((typeof module === 'object') && module.exports) {
 		/* CommonJS module */
 		module.exports = factory(require('angular'), require('spin.js'));
 	} else if (typeof define === 'function' && define.amd) {
