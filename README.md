@@ -130,7 +130,7 @@ The spinner-key will be used as an identifier (not unique) allowing you to have 
 
 ### Example
 
-See [online example on Plunker](http://plnkr.co/edit/BGLUYcylbIVJRz6ztbhf?p=preview).
+See [online example on Plunker](http://plnkr.co/edit/OUJTJbtG2F0VUvnIk1dv?p=preview).
 
 ## License
 
